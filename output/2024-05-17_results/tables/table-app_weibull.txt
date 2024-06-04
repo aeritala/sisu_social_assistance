@@ -1,0 +1,69 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.5cm}}
+\caption{\label{tab:app_weibull}Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the Weibull regression model
+    which was developed as the continuous component of the two-part model. Estimates are on the scale of the linear predictor (log). The star (*) denotes an interaction term. Detailed covariate descriptions are provided in the Appendix \ref{tab:app_cov}.}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endfirsthead
+\caption[]{Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the Weibull regression mo \textit{(continued)}}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Intercept} & Intercept & -4.77 & 1.18 & 1.00 & 3408.13 & 2178.74\\
+\textbf{Age} & Under 18 & -0.29 & 0.04 & 1.00 & 3874.44 & 2137.19\\
+\textbf{} & 25--34 & 0.03 & 0.01 & 1.00 & 2261.70 & 2488.46\\
+\textbf{} & 35--44 & 0.10 & 0.01 & 1.00 & 1873.57 & 2249.20\\
+\textbf{} & 45--65 & 0.02 & 0.02 & 1.00 & 1934.71 & 2168.79\\
+\textbf{} & 65 or older & -0.13 & 0.02 & 1.00 & 2380.34 & 1968.65\\
+\textbf{Sex} & Female & 0.01 & 0.01 & 1.00 & 5183.29 & 2305.77\\
+\textbf{House-dwel. structure} & Couple with children & -4.66 & 0.52 & 1.00 & 1942.84 & 2068.14\\
+\textbf{} & Couple & -3.52 & 0.54 & 1.00 & 1873.02 & 1955.85\\
+\textbf{} & Unknown & -0.10 & 0.81 & 1.00 & 2075.88 & 2023.63\\
+\textbf{} & Other & -2.80 & 0.81 & 1.00 & 2279.45 & 1982.32\\
+\textbf{} & Single with children & 2.65 & 0.49 & 1.00 & 1741.32 & 1885.72\\
+\textbf{Main activity} & On pension & -0.49 & 0.02 & 1.00 & 1622.38 & 2158.82\\
+\textbf{} & Other & 0.15 & 0.02 & 1.00 & 1984.51 & 2206.18\\
+\textbf{} & Student & 0.12 & 0.04 & 1.00 & 2357.09 & 2286.07\\
+\textbf{} & Entrepreneur & -0.36 & 0.04 & 1.00 & 3962.35 & 1889.71\\
+\textbf{Housing tenure} & Owner-occupied & -0.20 & 0.03 & 1.00 & 1801.67 & 2098.76\\
+\textbf{} & Part-ownership & -0.20 & 0.05 & 1.00 & 2244.41 & 2378.89\\
+\textbf{} & Rented dwelling & -0.20 & 0.03 & 1.00 & 1875.36 & 2112.55\\
+\textbf{Communal house-dwel.} & Yes & 0.21 & 0.02 & 1.00 & 4476.24 & 2237.82\\
+\textbf{Education level} & Upper second. & -0.14 & 0.01 & 1.00 & 3524.90 & 2333.70\\
+\textbf{} & Post-second. non-tert. & -0.14 & 0.06 & 1.00 & 4491.32 & 2455.32\\
+\textbf{} & Lowest tertiary & -0.17 & 0.03 & 1.00 & 5226.77 & 2400.80\\
+\textbf{} & Bachelor's or equiv. & -0.20 & 0.02 & 1.00 & 4041.12 & 2335.76\\
+\textbf{} & Master's or equiv. and second stage of tert. & -0.22 & 0.03 & 1.00 & 4424.38 & 2405.83\\
+\textbf{Municip. class} & Other Helsinki metrop. area & 0.01 & 0.02 & 1.00 & 3227.36 & 2180.94\\
+\textbf{} & Middle-sized cities & -0.07 & 0.01 & 1.00 & 2439.72 & 2233.61\\
+\textbf{} & Other municipalities & -0.09 & 0.01 & 1.00 & 2554.79 & 2224.22\\
+\textbf{Immigrant status} & Yes & 0.03 & 0.01 & 1.00 & 3797.32 & 2005.88\\
+\textbf{Unemp. duration} &  & 0.10 & 0.01 & 1.00 & 4807.74 & 2091.34\\
+\textbf{Income decile} &  & 2.00 & 0.04 & 1.00 & 3013.12 & 2137.58\\
+\textbf{Salary} &  & -20.28 & 0.50 & 1.00 & 1609.68 & 2012.79\\
+\textbf{Capital income} &  & -0.01 & 1.46 & 1.00 & 5674.43 & 2342.41\\
+\textbf{Housing allowance} &  & 6.14 & 1.47 & 1.00 & 3915.08 & 1950.61\\
+\textbf{Labour market subsidy} &  & -2.27 & 0.18 & 1.00 & 2831.69 & 2208.55\\
+\textbf{Basic unemp.} &  & -0.47 & 0.04 & 1.00 & 4171.21 & 2348.21\\
+\textbf{Earnings-rel. unemp.} &  & -3.27 & 0.17 & 1.00 & 4227.26 & 2276.96\\
+\textbf{Pension} &  & -1.62 & 1.50 & 1.00 & 4675.79 & 1928.38\\
+\textbf{Student aid} &  & 0.03 & 0.01 & 1.00 & 2638.27 & 2570.37\\
+\textbf{SISU soc.assist. categ.} & 581--2424 & 0.40 & 0.01 & 1.00 & 2900.40 & 2143.62\\
+\textbf{} & 2425---5482 & 0.68 & 0.01 & 1.00 & 3090.71 & 2390.19\\
+\textbf{} & more than 5483 & 1.13 & 0.02 & 1.00 & 2404.36 & 2373.86\\
+\textbf{Family's benefits} &  & 1.79 & 1.49 & 1.00 & 4516.02 & 2213.68\\
+\textbf{Other social benefits} &  & -1.20 & 1.49 & 1.00 & 6068.92 & 2102.18\\
+\textbf{House-dwel. structure * Salary} & Salary * Couple with children & -6.18 & 0.63 & 1.00 & 1952.02 & 2010.10\\
+\textbf{} & Salary * Couple & -4.45 & 0.66 & 1.00 & 1885.01 & 1877.21\\
+\textbf{} & Salary * Unknown & 0.01 & 0.96 & 1.00 & 2082.15 & 2055.54\\
+\textbf{} & Salary * Other & -3.71 & 0.98 & 1.00 & 2266.37 & 1945.65\\
+\textbf{} & Salary * Single with children & 2.97 & 0.60 & 1.00 & 1741.42 & 1902.89\\*
+\end{longtable}
+\endgroup{}

@@ -1,0 +1,13 @@
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha01.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha02.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha03.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha04.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha05.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha06.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha07.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha08.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha09.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha10.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha11.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha12.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-10_ggamma_alpha/fit_ggamma_alpha13.Rds" --mini=FALSE --output="output/2024-01-10_ggamma_alpha" --overwrite=FALSE 

@@ -1,0 +1,5 @@
+## `r basename(files[i])`
+
+```{r, results = "asis"}
+knitr::kable(fit$prior, digits = 2, format = "simple")
+```

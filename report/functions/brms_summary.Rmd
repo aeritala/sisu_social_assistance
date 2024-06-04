@@ -1,0 +1,7 @@
+## `r basename(files[i])`
+
+```{r, results = "asis"}
+fit_sum <- summary(fit)
+knitr::kable(fit_sum$fixed, digits = 2, format = "simple")
+knitr::kable(fit_sum$spec_pars, digits = 2, format = "simple")
+```

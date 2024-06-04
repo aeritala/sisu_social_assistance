@@ -1,0 +1,69 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.5cm}}
+\caption{\label{tab:app_gamma}Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the gamma regression model
+    which was developed as the continuous component of the two-part model. Estimates are on the scale of the linear predictor (log). The star (*) denotes an interaction term. Detailed covariate descriptions are provided in the Appendix \ref{tab:app_cov}.}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endfirsthead
+\caption[]{Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the gamma regression mo \textit{(continued)}}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Intercept} & Intercept & -5.20 & 1.18 & 1.00 & 3400.76 & 2269.80\\
+\textbf{Age} & Under 18 & -0.32 & 0.04 & 1.00 & 3973.57 & 2773.50\\
+\textbf{} & 25--34 & 0.03 & 0.02 & 1.00 & 1841.83 & 2060.45\\
+\textbf{} & 35--44 & 0.10 & 0.02 & 1.00 & 1638.78 & 2107.88\\
+\textbf{} & 45--65 & 0.02 & 0.02 & 1.00 & 1449.68 & 1717.61\\
+\textbf{} & 65 or older & -0.13 & 0.03 & 1.00 & 1879.15 & 1996.08\\
+\textbf{Sex} & Female & 0.01 & 0.01 & 1.00 & 4291.29 & 2083.62\\
+\textbf{House-dwel. structure} & Couple with children & -4.75 & 0.54 & 1.00 & 1490.06 & 1890.81\\
+\textbf{} & Couple & -3.49 & 0.59 & 1.00 & 1513.56 & 1958.37\\
+\textbf{} & Unknown & -0.03 & 0.81 & 1.00 & 1976.84 & 2023.77\\
+\textbf{} & Other & -2.58 & 0.82 & 1.00 & 1710.46 & 1898.43\\
+\textbf{} & Single with children & 2.27 & 0.52 & 1.00 & 1478.45 & 1743.85\\
+\textbf{Main activity} & On pension & -0.52 & 0.02 & 1.00 & 1479.47 & 1945.06\\
+\textbf{} & Other & 0.16 & 0.02 & 1.00 & 2184.89 & 2202.72\\
+\textbf{} & Student & 0.13 & 0.04 & 1.00 & 2012.60 & 2278.43\\
+\textbf{} & Entrepreneur & -0.39 & 0.04 & 1.00 & 3584.36 & 2691.67\\
+\textbf{Housing tenure} & Owner-occupied & -0.21 & 0.04 & 1.00 & 1847.44 & 2182.48\\
+\textbf{} & Part-ownership & -0.19 & 0.06 & 1.00 & 2604.49 & 2394.45\\
+\textbf{} & Rented dwelling & -0.19 & 0.03 & 1.00 & 1771.23 & 2132.80\\
+\textbf{Communal house-dwel.} & Yes & 0.20 & 0.02 & 1.00 & 4732.66 & 2253.10\\
+\textbf{Education level} & Upper second. & -0.14 & 0.01 & 1.00 & 4047.97 & 2066.74\\
+\textbf{} & Post-second. non-tert. & -0.14 & 0.07 & 1.00 & 3588.72 & 2178.49\\
+\textbf{} & Lowest tertiary & -0.18 & 0.03 & 1.00 & 4273.60 & 2244.05\\
+\textbf{} & Bachelor's or equiv. & -0.21 & 0.02 & 1.00 & 3556.27 & 2367.53\\
+\textbf{} & Master's or equiv. and second stage of tert. & -0.24 & 0.03 & 1.00 & 4025.04 & 2440.65\\
+\textbf{Municip. class} & Other Helsinki metrop. area & 0.01 & 0.02 & 1.00 & 2402.82 & 2482.91\\
+\textbf{} & Middle-sized cities & -0.07 & 0.01 & 1.00 & 1865.17 & 2157.85\\
+\textbf{} & Other municipalities & -0.09 & 0.02 & 1.00 & 1942.73 & 2299.13\\
+\textbf{Immigrant status} & Yes & 0.02 & 0.01 & 1.00 & 3641.73 & 2272.71\\
+\textbf{Unemp. duration} &  & 0.10 & 0.01 & 1.00 & 4452.32 & 2028.62\\
+\textbf{Income decile} &  & 2.01 & 0.04 & 1.00 & 2451.00 & 2052.00\\
+\textbf{Salary} &  & -20.61 & 0.55 & 1.00 & 1401.14 & 1949.38\\
+\textbf{Capital income} &  & 0.01 & 1.48 & 1.00 & 4731.30 & 2288.93\\
+\textbf{Housing allowance} &  & 5.76 & 1.44 & 1.00 & 4318.82 & 2293.19\\
+\textbf{Labour market subsidy} &  & -2.10 & 0.20 & 1.00 & 2516.25 & 2529.34\\
+\textbf{Basic unemp.} &  & -0.48 & 0.05 & 1.00 & 3787.50 & 2571.50\\
+\textbf{Earnings-rel. unemp.} &  & -3.45 & 0.19 & 1.00 & 2948.10 & 2406.66\\
+\textbf{Pension} &  & -1.50 & 1.50 & 1.00 & 4485.92 & 2401.68\\
+\textbf{Student aid} &  & 0.03 & 0.02 & 1.00 & 2020.38 & 2154.58\\
+\textbf{SISU soc.assist. categ.} & 581--2424 & 0.42 & 0.02 & 1.00 & 2990.11 & 1946.91\\
+\textbf{} & 2425---5482 & 0.71 & 0.02 & 1.00 & 2694.52 & 2483.96\\
+\textbf{} & more than 5483 & 1.16 & 0.02 & 1.00 & 2457.33 & 2668.87\\
+\textbf{Family's benefits} &  & 1.58 & 1.49 & 1.00 & 4747.36 & 2146.49\\
+\textbf{Other social benefits} &  & -1.04 & 1.50 & 1.00 & 4015.95 & 2393.73\\
+\textbf{House-dwel. structure * Salary} & Salary * Couple with children & -6.27 & 0.65 & 1.00 & 1490.71 & 1988.56\\
+\textbf{} & Salary * Couple & -4.39 & 0.72 & 1.00 & 1515.35 & 1854.35\\
+\textbf{} & Salary * Unknown & 0.11 & 0.97 & 1.00 & 1998.11 & 1937.93\\
+\textbf{} & Salary * Other & -3.42 & 1.00 & 1.00 & 1702.53 & 2004.18\\
+\textbf{} & Salary * Single with children & 2.53 & 0.63 & 1.00 & 1485.13 & 1704.32\\*
+\end{longtable}
+\endgroup{}

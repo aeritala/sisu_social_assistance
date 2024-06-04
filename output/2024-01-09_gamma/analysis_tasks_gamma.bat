@@ -1,0 +1,13 @@
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma01.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma02.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma03.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma04.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma05.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma06.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma07.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma08.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma09.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma10.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma11.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma12.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 
+Rscript --no-save --no-restore models\functions\analysis_submodel.R --file="output/2024-01-09_gamma/fit_gamma13.Rds" --mini=FALSE --output="output/2024-01-09_gamma" --overwrite=FALSE 

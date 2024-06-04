@@ -1,0 +1,15 @@
+\begin{table}
+
+\caption{\label{tab:res_lppd}LPPD, LPPD differences ($\text{LPPD}_{\text{diff}}$), and standard error of the LPPD differences ($\text{SE}_{\text{diff}}$) of the two-part model with varying continuous distribution assumption (Model) of total annual social assistance. The differences in LPPD have been calculated with respect to the model with the highest LPPD. The estimates have been calculated from posterior predictive samples using the test data set.}
+\centering
+\fontsize{11}{13}\selectfont
+\begin{tabular}[t]{lrrr}
+\toprule
+Model & LPPD & $\text{LPPD}_{\text{diff}}$ & $\text{\hat{SE}}_{\text{diff}}$\\
+\midrule
+Generalized gamma & -82191.71 & 0.00 & 0.00\\
+Weibull & -82473.30 & -281.59 & 50.61\\
+Gamma & -82537.22 & -345.51 & 48.17\\
+\bottomrule
+\end{tabular}
+\end{table}

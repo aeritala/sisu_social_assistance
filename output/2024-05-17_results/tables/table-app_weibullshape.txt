@@ -1,0 +1,21 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{lrrlrr}
+\caption{\label{tab:app_weibullshape}Posterior mean, standard error, $\hat{R}$-value, bulk-ESS and tail-ESS value of the shape parameter from the Weibull regression model
+    which was developed as the continuous component of the two-part model.}\\
+\toprule
+  & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endfirsthead
+\caption[]{Posterior mean, standard error, $\hat{R}$-value, bulk-ESS and tail-ESS value of the shape parameter from the Weibull regression mo \textit{(continued)}}\\
+\toprule
+  & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+Shape & 1.31 & 0.01 & 1.00 & 7109.39 & 2060.56\\*
+\end{longtable}
+\endgroup{}

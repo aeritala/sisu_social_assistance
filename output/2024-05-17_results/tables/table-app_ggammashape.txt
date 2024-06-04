@@ -1,0 +1,22 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{lrrlrr}
+\caption{\label{tab:app_gammashape}Posterior mean, standard error, $\hat{R}$-value, bulk-ESS and tail-ESS value of the scale ($\beta$) and shape ($\delta$) parameters from the generalized gamma regression model
+    which was developed as the continuous component of the two-part model.}\\
+\toprule
+  & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endfirsthead
+\caption[]{Posterior mean, standard error, $\hat{R}$-value, bulk-ESS and tail-ESS value of the scale ($\beta$) and shape ($\delta$) parameters from the generalized gamma regression mo \textit{(continued)}}\\
+\toprule
+  & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+$\beta$ & 1137.23 & 40.16 & 1.00 & 1545.69 & 1666.25\\
+$\delta$ & 0.92 & 0.01 & 1.00 & 1494.51 & 1669.25\\*
+\end{longtable}
+\endgroup{}

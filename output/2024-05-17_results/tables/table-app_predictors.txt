@@ -1,0 +1,90 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{5cm}rrr>{\raggedleft\arraybackslash}p{2.3cm}}
+\caption{\label{tab:app_preds}Mean, first quantile (Q1), third quantile (Q3) of annual social assistance, and proportion of social assistance recipients in groups
+    defined by attributes of the house-dwelling units. Housing allowance refers to general housing allowance, housing
+    allowance for students and housing allowance for pensioners.}\\
+\toprule
+Variable & Mean (€/year) & Q1 (€/year) & Q3 (€/year) & Prop. of SA recipients (\%)\\
+\midrule
+\endfirsthead
+\caption[]{Mean, first quantile (Q1), third quantile (Q3) of annual social assistance, and proportion of social assistance recipients in gro \textit{(continued)}}\\
+\toprule
+Variable & Mean (€/year) & Q1 (€/year) & Q3 (€/year) & Prop. of SA recipients (\%)\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Sex of the reference person}}\\
+\hspace{1em}Male & 2832.96 & 774.51 & 4047.34 & 4.82\\
+\hspace{1em}Female & 2815.68 & 718.78 & 3987.60 & 4.28\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Age of the reference person}}\\
+\hspace{1em}{}[0, 18) & 2169.63 & 671.02 & 3054.60 & 0.14\\
+\hspace{1em}{}[18, 25) & 2995.57 & 906.67 & 4465.96 & 1.83\\
+\hspace{1em}{}[25, 35) & 3144.34 & 943.50 & 4458.05 & 2.21\\
+\hspace{1em}{}[35, 45) & 3182.77 & 866.62 & 4524.16 & 2.33\\
+\hspace{1em}{}[45, 65) & 2427.83 & 630.00 & 3386.02 & 1.97\\
+\hspace{1em}{}[>65] & 1263.28 & 278.56 & 1567.47 & 0.63\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{House-dwelling unit structure}}\\
+\hspace{1em}Other & 2571.97 & 598.37 & 3871.60 & 0.55\\
+\hspace{1em}Single & 2633.55 & 741.79 & 3716.76 & 5.21\\
+\hspace{1em}Single with children & 3173.34 & 901.83 & 4537.75 & 1.32\\
+\hspace{1em}Couple with children & 2560.05 & 623.05 & 3591.14 & 0.87\\
+\hspace{1em}Couple & 3635.33 & 801.70 & 5465.67 & 0.98\\
+\hspace{1em}Unknown & 3478.95 & 757.97 & 4868.68 & 0.17\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Housing tenure}}\\
+\hspace{1em}Other & 2602.15 & 616.31 & 3763.93 & 0.74\\
+\hspace{1em}Owner-occupied & 2084.28 & 474.00 & 2707.35 & 1.10\\
+\hspace{1em}Part-ownership & 2600.80 & 723.89 & 3648.61 & 0.10\\
+\hspace{1em}Rented-dwelling & 2964.37 & 832.89 & 4201.45 & 7.17\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Main activity of the reference person on the last day of the year}}\\
+\hspace{1em}Employed & 1889.97 & 531.38 & 2539.40 & 2.24\\
+\hspace{1em}Long-term unemployed & 3694.95 & 1399.61 & 5239.03 & 2.57\\
+\hspace{1em}Student & 3187.32 & 1105.21 & 4555.64 & 1.20\\
+\hspace{1em}On pension & 1431.33 & 299.00 & 1822.66 & 1.58\\
+\hspace{1em}Entrepreneur & 2362.45 & 610.50 & 3290.54 & 0.13\\
+\hspace{1em}Other & 4041.85 & 1636.70 & 5747.45 & 1.39\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Education level of the reference person}}\\
+\hspace{1em}Comprehensive & 3420.44 & 955.56 & 5057.65 & 3.75\\
+\hspace{1em}Upper secondary & 2420.08 & 660.81 & 3365.89 & 4.33\\
+\hspace{1em}Post-secondary non-tertiary & 2058.61 & 589.44 & 2909.89 & 0.04\\
+\hspace{1em}Lowest tertiary & 2295.71 & 549.85 & 3103.50 & 0.30\\
+\hspace{1em}Bachelor's or equiv. & 2420.50 & 650.46 & 3332.04 & 0.45\\
+\hspace{1em}Masters or equiv. and second stage of tertiary & 2366.64 & 647.66 & 3229.01 & 0.24\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Immigration status of the reference person}}\\
+\hspace{1em}No & 2629.28 & 685.80 & 3722.69 & 7.40\\
+\hspace{1em}Yes & 3670.60 & 1211.63 & 5203.87 & 1.71\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Total salary per house-dwelling unit (1000€/year)}}\\
+\hspace{1em}{}[0, 0.5k) & 3273.77 & 941.63 & 4760.47 & 5.26\\
+\hspace{1em}{}[0.5k, 3k) & 3270.56 & 1108.10 & 4611.84 & 0.72\\
+\hspace{1em}{}[3k, 7k) & 2688.03 & 804.43 & 3792.64 & 0.65\\
+\hspace{1em}{}[7k, 10k) & 2154.90 & 669.39 & 2822.60 & 0.38\\
+\hspace{1em}{}[10k, 20k) & 1861.91 & 559.49 & 2469.28 & 0.81\\
+\hspace{1em}{}[>20k] & 1613.23 & 421.93 & 2086.20 & 1.29\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Total housing allowance per house-dwelling unit (€/year)}}\\
+\hspace{1em}{}[0, 0.5k) & 1541.33 & 369.70 & 1989.16 & 1.30\\
+\hspace{1em}{}[0.5k, 1k) & 1678.05 & 442.62 & 2131.02 & 0.39\\
+\hspace{1em}{}[1k, 3k) & 2124.63 & 588.64 & 2930.34 & 2.03\\
+\hspace{1em}{}[3k, 5k) & 3197.24 & 1135.71 & 4519.91 & 3.88\\
+\hspace{1em}{}[>5k] & 4215.11 & 1244.74 & 6153.20 & 1.50\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Total labour market subsidy per house-dwelling unit (number of days)}}\\
+\hspace{1em}{}[<30) & 2582.97 & 540.62 & 3646.05 & 5.00\\
+\hspace{1em}{}[30, 60) & 3267.84 & 875.43 & 5030.48 & 0.31\\
+\hspace{1em}{}[60, 100) & 3111.29 & 938.60 & 4529.16 & 0.37\\
+\hspace{1em}{}[100, 200) & 3011.61 & 1050.54 & 4263.81 & 0.92\\
+\hspace{1em}{}[200, 300) & 2889.39 & 1308.01 & 3824.67 & 2.18\\
+\hspace{1em}{}[>300] & 4864.85 & 2357.75 & 6674.96 & 0.32\\*
+\end{longtable}
+\endgroup{}

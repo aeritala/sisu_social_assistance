@@ -1,0 +1,435 @@
+---
+title: "Task `r params$task`"
+output: html_document
+params:
+  task: "2024-01-31_tp"
+  files: NULL
+---
+
+```{r, include = FALSE}
+suppressWarnings(suppressMessages(library(knitr)))
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      results = FALSE)
+options(knitr.kable.NA = '.')
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(ggplot2)))
+suppressWarnings(suppressMessages(library(stringr)))
+suppressWarnings(suppressMessages(library(tidyr)))
+suppressWarnings(suppressMessages(library(kableExtra)))
+suppressWarnings(suppressMessages(library(patchwork)))
+source(file = file.path("report",
+                        "functions",
+                        "report_helpers.R"))
+source(file = file.path("models",
+                        "functions",
+                        "analysis_helpers.R"))
+```
+
+
+
+```{r initial_settings}
+task_path <- file.path("output",
+                       params$task)
+res_path <- file.path("output",
+                      "2024-02-23_seminaarityo")
+res_files <- list.files(task_path,
+                        full.names = TRUE) %>%
+  str_subset(., "tp0[2-4]_valid_res")
+res <- readResults(res_files, all_files = FALSE)
+
+```
+
+```{r, results = TRUE}
+criteria_res <- tidyResults(res, "criteria") %>% 
+   mutate(model = case_when(
+    file == "fit_tp02.Rds" ~ "Gamma",
+    file == "fit_tp03.Rds" ~ "Weibull",
+    file == "fit_tp04.Rds" ~ "Generalized_gamma"
+  ))
+lppd_diff <- calcLogLikDiffs(results = res,
+                             tp = TRUE)
+```
+
+```{r sisu_results}
+test_data <- readRDS(file.path("no_vc", "cache", "sample_test.Rds"))
+test_data <- test_data %>% 
+  mutate(perustt = ifelse(perustt < 1, 0, perustt),
+         perustt_kylla = ifelse(perustt != 0, 1, 0))
+sisu_res <- data.frame(
+  "model" = "SISU-model",
+  "stat" = "mean",
+  "rmse" = calcRMSE(test_data$toimtuki_simul, test_data$perustt),
+  "ks_test" = suppressWarnings(ks.test(test_data$toimtuki_simul,
+                                       test_data$perustt)$statistic))
+```
+
+
+## Test data results
+
+### Order based on criteria
+
+Order of the fits according to LPPD, mean RMSE and mean KS-test. Means have been calculated over estimates calculated from the posterior predictive samples.
+
+```{r lppd, results = TRUE}
+lppd_desc <- left_join(criteria_res, lppd_diff, by = "file") %>% 
+  filter(stat == "mean") %>% 
+  select(model, lppd, lppd_diff, se_diff) %>% 
+  arrange(desc(lppd))
+lppd_desc$model <- c("Generalized gamma",
+                     "Weibull",
+                     "Gamma")
+
+lppd_table_pres <- kableExtra::kable(lppd_desc,
+                  booktabs = TRUE,
+                  digits = 2,
+                  row.names = FALSE,
+                  col.names = c("Model", "LPPD", "LPPD_diff", "SE_diff")) %>%
+  footnote(paste("N = ", nrow(test_data))) %>% 
+  kable_styling(full_width = FALSE,
+                html_font = "Source Sans Pro",
+                htmltable_class = "lightable-classic")
+
+saveRDS(lppd_table_pres,
+        file.path(res_path, "tables", "table-res_lppd.Rds"))
+
+lppd_table <- kableExtra::kable(lppd_desc,
+                                format = "latex",
+                                escape = FALSE,
+                                booktabs = TRUE,
+                                digits = 2,
+                                label = "res_lppd",
+                                row.names = FALSE,
+                                col.names = c("Model", "LPPD", "LPPD\\_diff", "SE\\_diff"),
+                                caption = "LPPD, LPPD differences (LPPD\\_diff), and standard error of the LPPD differences (SE\\_diff) of the two-part model with varying continuous distribution assumption (model) of total annual social assistance. The differences in LPPD have been calculated with respect to the model with the highest LPPD. The estimates have been calculated from posterior predictive samples using the test data set.",
+                                )
+cat(lppd_table, file = file.path(res_path, "tables/table-results_lppd.txt"))
+
+```
+
+```{r conftable, results = TRUE}
+
+dummy_estimate <- rep(0, nrow(test_data))
+dummy_class <- data.frame(test_error = calcPropIncorrect(dummy_estimate,
+                                                        test_data$data_kylla))
+dummy_class <- dummy_class*100
+
+sisu_class <- data.frame(test_error = calcPropIncorrect(test_data$simul_kylla,
+                                                         test_data$perustt_kylla),
+                         false_neg = calcFalseNeg(test_data$simul_kylla,
+                                                         test_data$perustt_kylla),
+                         false_pos = calcFalsePos(test_data$simul_kylla,
+                                                         test_data$perustt_kylla))
+sisu_class <- sisu_class*100
+
+
+res_class <- data.frame(
+  test_error = apply(res$pp_bin[[1]], 1,
+                     \(x) calcPropIncorrect(x, test_data$data_kylla)),
+  false_neg = apply(res$pp_bin[[1]], 1,
+                    \(x) calcFalseNeg(x, test_data$data_kylla)),
+  false_pos = apply(res$pp_bin[[1]], 1,
+                    \(x) calcFalsePos(x, test_data$data_kylla)))
+
+res_class <- pivot_longer(res_class,
+                          cols = everything(),
+                          names_to = "stat",
+                          values_to = "estimate") %>% 
+  mutate(estimate = estimate*100)
+
+scaleFun <- function(x) sprintf("%.1f", x)
+
+class_plot <- ggplot(res_class, aes(x = estimate)) +
+  geom_density() +
+  geom_vline(data = res_class %>% filter(stat == "test_error"),
+             aes(xintercept = sisu_class$test_error),
+             col = "blue",
+             linetype = 2) +
+    geom_vline(data = res_class %>% filter(stat == "test_error"),
+             aes(xintercept = dummy_class$test_error),
+             col = "red",
+             linetype = 3) +
+  geom_vline(data = res_class %>% filter(stat == "false_neg"),
+             aes(xintercept = sisu_class$false_neg),
+             col = "blue",
+             linetype = 2) +
+  geom_vline(data = res_class %>% filter(stat == "false_pos"),
+             aes(xintercept = sisu_class$false_pos),
+             col = "blue",
+             linetype = 2) + 
+  scale_x_continuous(
+    labels = scaleFun,
+    expand = rep(2e-2, 2)
+  ) +
+  labs(y = "Density",
+       x = "Percentage (%)",
+       caption = paste("Number of posterior predictive samples N = 3000")) +
+  theme_bw() +
+  facet_wrap(~stat,
+             scales = "free",
+             labeller = labeller(stat = c("false_neg" = "False negative rate",
+                                          "false_pos" = "False positive rate",
+                                          "test_error" = "Test error rate")))
+
+ggsave(class_plot,
+       filename = "output/2024-02-23_seminaarityo//plots/plot-results_class.pdf",
+       device = "pdf",
+       units = "px",
+       width = calcPlotDim("width", 0.8),
+       height = calcPlotDim("height", 0.25)
+       )
+
+ggsave(class_plot,
+       filename = "output/2024-02-23_seminaarityo//plots/plot-results_class.svg",
+       device = "svg",
+       units = "px",
+       width = calcPlotDim("width", 1),
+       height = calcPlotDim("height", 0.3)
+       )
+```
+
+
+```{r criteria, results = TRUE}
+criteria_desc <- criteria_res %>% 
+  select(model, stat, rmse, ks_test) %>%
+  rbind(., sisu_res) %>% 
+  pivot_longer(., cols = c(rmse, ks_test),
+               names_to = "criteria",
+               values_to = "estimate") %>% 
+  pivot_wider(., id_cols = c(model, criteria), names_from = stat, values_from = estimate) %>% arrange(criteria, model)
+
+target <- c("SISU-model","Gamma", "Weibull", "Generalized_gamma")
+ks_test <- criteria_desc %>%
+  filter(criteria == "ks_test")
+ks_test <- ks_test[match(target, ks_test$model),]
+rmse <- criteria_desc %>% 
+  filter(criteria == "rmse")
+rmse <- rmse[match(target, rmse$model),]
+
+criteria_desc <- bind_rows(ks_test, rmse)
+
+criteria_desc <- criteria_desc %>% 
+  mutate(criteria = case_when(
+    criteria == "rmse" ~ "RMSE",
+    .default = "KS-test (d)"
+  ),
+  model = case_when(
+    model == "Generalized_gamma" ~ "Generalized gamma",
+    model == "Gamma" ~ "Gamma",
+    model == "SISU-model" ~ "SISU-model",
+    .default = "Weibull"
+  ))
+
+new_colnames <- c("Model", "Estimate", "Lower 95% PI", "Upper 95% PI")
+
+index <- table(criteria_desc$criteria)
+criteria_table_pres <- kableExtra::kable(criteria_desc %>% select(!criteria),
+             digits = 3,
+             booktabs = TRUE,
+             col.names = new_colnames,
+             row.names = FALSE) %>% 
+  pack_rows(index = index) %>%
+  footnote(paste("N = ", nrow(test_data))) %>% 
+    kable_styling(full_width = FALSE,
+                html_font = "Source Sans Pro",
+                htmltable_class = "lightable-classic")
+criteria_table_pres
+saveRDS(criteria_table_pres,
+        file.path(res_path, "tables", "table-res_criteria.Rds"))
+
+new_colnames <- c("Model", "Estimate", "Lower 95\\% CI", "Upper 95\\% CI")
+criteria_table <- kableExtra::kable(criteria_desc %>% select(!criteria),
+                                    format = "latex",
+                                    escape = FALSE,
+                                    digits = 3,
+                                    booktabs = TRUE,
+                                    row.names = FALSE,
+                                    label = "res_criteria",
+                                    col.names = new_colnames,
+                                    caption = "Estimates of the root mean squared error (RMSE) and Kolmogorov-Smirnov test statistic $d$ for SISU-model and each of the two-part models with varying continuous distribution assumption of total annual social assistance. For the two-part model the estimate is a mean over the posterior predictive samples using the test data set, and for the SISU-model the estimate is a point-estimate. ") %>% 
+  pack_rows(index = index)
+
+cat(criteria_table, file = file.path(res_path, "tables/table-results_criteria.txt"))
+```
+
+
+### Bayesian p-values
+
+```
+bayesp_desc <- tidyResults(res, "bayes_p") %>% 
+  mutate(model = case_when(
+    file == "fit_tp02.Rds" ~ "gamma",
+    file == "fit_tp03.Rds" ~ "weibull",
+    file == "fit_tp04.Rds" ~ "generalized_gamma"
+  )) %>% 
+  select(model, stat, !c(model, stat, file))
+
+index <- index[setdiff(names(index), "SISU-model")]
+kableExtra::kable(bayesp_desc %>% select(!model),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Data set descriptives
+
+```{r data_set_descriptives, results = TRUE}
+data_desc <- tidyResults(res, "data_desc")
+data_desc <- data_desc[1,] %>% 
+  select(!c(stat, file))
+colnames(data_desc) <- c("mean", "median", "variance", "min", "max", "total")
+kableExtra::kable(data_desc,
+                  digits = 2) %>%
+  kable_paper()
+
+```
+
+### Bayes p-values
+
+```{r sisu_desc, results = TRUE}
+sisu_sa_est <- test_data$toimtuki_simul
+sisu_sa <- test_data$perustt
+sisu_desc <- data.frame(
+  "statistic" = c("Mean", "Variance", "Maximum", "Total"),
+  "SISU_model" = c(mean(sisu_sa_est),
+                   var(sisu_sa_est),
+                   max(sisu_sa_est),
+                   sum(sisu_sa_est)),
+  "Observed" = c(mean(sisu_sa),
+                 var(sisu_sa),
+                 round(max(sisu_sa), 0),
+                 sum(sisu_sa))
+  )
+sisu_desc$Observed <- as.character(round(sisu_desc$Observed,2))
+sisu_desc$Observed[sisu_desc$statistic == "Maximum"] <- "~21000"
+
+kableExtra::kable(sisu_desc,
+                  digits = 2,
+                  align = 'r',
+                  col.names = c("Statistic", "SISU-model (€ / year)", "Observed (€ / year)")) %>% footnote(paste("N = ", length(sisu_sa))) %>%
+  kable_styling(full_width = FALSE,
+                html_font = "Source Sans Pro",
+                htmltable_class = "lightable-classic")
+
+sisu_desc_table_pres <- kableExtra::kable(sisu_desc,
+                  digits = 2,
+                  align = 'r',
+                  col.names = c("Statistic", "SISU-model (€ / year)", "Observed (€ / year)")) %>% footnote(paste("N = ", length(sisu_sa))) %>%
+  kable_styling(full_width = FALSE,
+                html_font = "Source Sans Pro",
+                htmltable_class = "lightable-classic")
+
+saveRDS(sisu_desc_table_pres, file = file.path(res_path, "tables/table-results_sisudesc.Rds"))
+
+sisu_desc_table <- kableExtra::kable(sisu_desc,
+                  format = "latex",
+                  col.names = c("statistic", "SISU-model (€ / year)", "observed (€ / year)"),
+                  digits = 2)
+cat(sisu_desc_table, file = file.path(res_path, "tables/table-results_sisudesc.txt"))
+```
+
+
+```{r bayesp_plots, results = TRUE}
+
+pp_tp <- list("gamma" = res$pp_real[[1]],
+              "weibull" = res$pp_real[[2]],
+              "ggamma" = res$pp_real[[3]])
+
+calcBayesP <- function(m, f, y, tag) {
+  y <- y[y > 0]
+  test <- apply(m, 1, \(x) {f(x[x > 0]) > f(y)}) # N.B. positive obs only
+  test <- data.frame(est = test)
+  newres <- test %>% summarise(mean = mean(est),
+                            se = sd(est),
+                            lwr_ci = quantile(est, 0.025, names = F),
+                            upr_ci = quantile(est, 0.975, names = F))
+  return(res)
+}
+
+PPBayesP <- function(pp_list) {
+  newres <- Reduce(bind_rows, newres)
+  newres$stat <- tag
+}
+
+bp_mean <- lapply(pp_tp, \(x) calcBayesP(x, mean, test_data$data_kylla, "mean"))
+bp_var <- lapply(pp_tp, \(x) calcBayesP(x, var, test_data$data_kylla, "var"))
+
+
+calcPostPredStats <- function(pp_list, f) {
+  l <- lapply(pp_list, \(x) { apply(x, 1, \(w) f(w[w > 0])) })
+  l <- data.frame(l) %>% 
+    pivot_longer(.,
+                 cols = names(l),
+                 values_to = "estimate",
+                 names_to = "distribution")
+  return(l)
+}
+
+plotPostPredStat <- function(stat_list, newstat) {
+  ggplot(stat_list, aes(x = estimate, col = distribution)) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = data_desc[1,newstat],
+             linewidth = 1,
+             linetype = 2) +
+  labs(y = "Density",
+       x = paste0("Estimate of the ", newstat)) +
+  theme_bw()
+}
+
+df_mean <- calcPostPredStats(pp_tp, mean)
+plot_mean <- plotPostPredStat(df_mean, "mean")
+
+df_median <- calcPostPredStats(pp_tp, median)
+plot_median <- plotPostPredStat(df_median, "median")
+
+df_variance <- calcPostPredStats(pp_tp, var)
+plot_variance <- plotPostPredStat(df_variance, "variance")
+
+df_max <- calcPostPredStats(pp_tp, max)
+plot_max <- plotPostPredStat(df_max, "max")
+
+df_total <- calcPostPredStats(pp_tp, sum)
+plot_total <- plotPostPredStat(df_total, "total")
+
+(plot_mean + plot_median) / (plot_variance + plot_max) / plot_total + plot_layout(guides = "collect")
+
+set.seed(216)
+j_n <- 3000
+col_sample <- sample.int(ncol(pp_tp$gamma), j_n)
+plot_pp_tp <- lapply(pp_tp, \(x) x[, col_sample])
+i_n <- 10
+i_sample <- sample.int(nrow(plot_pp_tp$gamma), i_n)
+pp_dist <- data.frame("pred" = c(as.vector(pp_real[[1]][i_sample,]),
+                                 as.vector(plot_pp_tp$weibull[i_sample,]),
+                                 as.vector(plot_pp_tp$ggamma[i_sample,]),
+                                 test_data$toimtuki_data),
+                      "dist" = rep(c(names(pp_tp), "observed"),
+                                   times = c(rep(length(as.vector(plot_pp_tp$gamma[i_sample,])), 3),
+                                             nrow(test_data)))
+)
+
+ggplot(pp_dist,
+       aes(x = pred, col = dist)) +
+  geom_density() +
+  xlim(0, 20000)
+
+# table(pp_dist$pred > 0, pp_dist$dist) %>% prop.table(., margin = 2)
+
+```
+
+
+### Descriptive statistics of the posterior predictive samples
+```{r postpred_descriptives, results = TRUE}
+desc_res <- tidyResults(res, "pred_desc") %>% 
+  mutate(model = case_when(
+    file == "fit_tp02.Rds" ~ "gamma",
+    file == "fit_tp03.Rds" ~ "weibull",
+    file == "fit_tp04.Rds" ~ "generalized_gamma"
+  )) %>% 
+  select(model, stat, !c(model, stat, file))
+kableExtra::kable(desc_res %>% select(!model),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```

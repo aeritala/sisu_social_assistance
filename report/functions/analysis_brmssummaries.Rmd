@@ -1,0 +1,43 @@
+---
+title: "Task `r params$task`"
+output: html_document
+params:
+  task: "2024-01-09_gamma"
+---
+
+```{r, include = FALSE}
+suppressWarnings(suppressMessages(library(knitr)))
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      results = FALSE)
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(ggplot2)))
+suppressWarnings(suppressMessages(library(stringr)))
+```
+
+```{r initial_settings, results = TRUE}
+task_path <- file.path(
+  "..", "..",
+  "output",
+  params$task)
+
+files <- list.files(path = task_path, full.names = TRUE) %>% stringr::str_subset("\\d+.Rds")
+
+res <- vector(mode = "list", length = length(files))
+```
+
+## Fit summaries
+
+```{r summaries}
+for (i in seq_along(files)) {
+  fit <- readRDS(files[i])
+  res[[i]] <- knitr::knit_child("brms_summary.Rmd")
+}
+```
+```{r print, results = "asis"}
+  for (r in res) {
+    cat(unlist(r), sep = "\n")
+  }
+```
+

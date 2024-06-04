@@ -1,0 +1,43 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{5.56cm}>{\raggedright\arraybackslash}p{5.56cm}}
+\caption{\label{tab:app_cov}Descriptions of the covariates used in the best-performing logistic, gamma, Weibull and generalized gamma regression models.}\\
+\toprule
+Variable & Description & Unit\\
+\midrule
+\endfirsthead
+\caption[]{Descriptions of the covariates used in the best-performing logistic, gamma, Weibull and generalized gamma regression models. \textit{(continued)}}\\
+\toprule
+Variable & Description & Unit\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Intercept} & Intercept, reference classes marked with (ref.) & \\
+\textbf{Age} & Age of the reference person & under 18, 18--24 (ref.), 25--34, 35--44, 45--64, 65 or older\\
+\textbf{Sex} & Sex of the reference person & male (ref.), female\\
+\textbf{House-dwel. structure} & House-dwelling unit structure & single (ref.), single with children, couple, couple with children, other, unknown\\
+\textbf{Education level} & Education level of the reference person & comprehensive school (ref.), upper secondary school, post-secondary non-tertiary education, lowest tertiary education, bachelor's or equivalent, master's or equivalent and second stage of tertiary education\\
+\textbf{Housing tenure} & Housing tenure & rented (ref.), owner-occupied, part-ownership, other\\
+\textbf{Immigrant status} & Immigrant status & no (ref.), yes\\
+\textbf{Municip. class} & Municipality class & Helsinki (ref.), other Helsinki metropolitan area, middle-sized cities, other municipalities\\
+\textbf{Communal house-dwel.} & Communal house-dwelling unit status, indicator whether persons aged 18 or over that are not the spouse of the reference person live in the house-dwelling unit & no (ref.), yes\\
+\textbf{Unemp. duration} & Unemployment duration of the reference person & number of months, 0--12\\
+\textbf{Income decile} & Income decile & ordinal number, 0--9\\
+\textbf{Capital income} & Capital income & €/year, total across all recipients in the house-dwelling unit\\
+\textbf{Labour market subsidy} & Duration of labour market subsidy receipt & number of days, total across all recipients in the house-dwelling unit\\
+\textbf{Basic unemp.} & Duration of basic unemployment allowance receipt & number of days, total across all recipients in the house-dwelling unit\\
+\textbf{Earnings-rel. unemp.} & Duration of earnings-related unemployment allowance receipt & number of days, total across all recipients in the house-dwelling unit\\
+\textbf{Student aid} & Duration of reference person's student aid receipt & number of months, 0--12\\
+\textbf{SISU soc.assist. cont.} & Amount of annual basiv social assistance predicted by the SISU model & €/year\\
+\textbf{SISU soc.assist. categ.} & Categorical amount of annual social assistance predicted by the SISU model & 0--580 €/year, 581--2424 €/year, 2425--5482 €/year, more than 5483 €/year\\
+\textbf{Housing allowance} & Amount of general housing allowance, housing supplement for students and housing allowance for pensioners & €/year, total across all recipients in the house-dwelling unit\\
+\textbf{Family's benefits} & Child benefit, maternity grant and child maintenance allowance & €/year, total across all recipients in the house-dwelling unit\\
+\textbf{Other social benefits} & Total of other social benefits & €/year, total across all recipients in the house-dwelling unit\\
+\textbf{Pension} & Amount of national pension, survivor's pension, inc. guarantee pension & €/year, total across all recipients in the house-dwelling unit\\
+\textbf{Main activity} & Main activity of the reference person over the course of the year & employed, entrepreneur, on pension, student, other\\
+\textbf{Salary} & Amount of annual salary & 1000€/year divided by the number of 18-year-olds or over in the house-dwelling unit\\*
+\end{longtable}
+\endgroup{}

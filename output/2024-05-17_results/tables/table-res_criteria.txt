@@ -1,0 +1,43 @@
+\begin{table}
+
+\caption{\label{tab:res_criteria}Mean and 95\% credible intervals of the root mean squared error (RMSE) and Kolmogorov-Smirnov (KS) test
+      $d$-statistic for each of the standard two-part models according to the continuous distribution assumption and
+      the classification method, and the corresponding point estimates of the SISU model. The estimates have been calculated
+      using the test data set, and the two-part model the predictions have been simulated using 3000 posterior samples.}
+\centering
+\fontsize{11}{13}\selectfont
+\begin{tabular}[t]{llrr}
+\toprule
+\quad Classifier & Criteria & Estimate & 95\% CI\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{SISU model}}\\
+\hspace{1em} & RMSE & 1426.76 & \\
+\hspace{1em} & KS test $d$ & 0.019 & \\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Gamma}}\\
+\hspace{1em}Posterior predictive & RMSE & 1330.10 & {}[1267.36, 1432.87]\\
+\hspace{1em} & KS test $d$ & 0.007 & {}[0.006, 0.008]\\
+\hspace{1em}Kappa-optimised & RMSE & 1271.38 & {}[1207.43, 1360.41]\\
+\hspace{1em} & KS test $d$ & 0.006 & {}[0.005, \vphantom{3} 0.007]\\
+\hspace{1em}Misclassification rate-optimised & RMSE & 1201.63 & {}[1148.36, 1270.96]\\
+\hspace{1em} & KS test $d$ & 0.032 & {}[0.032, \vphantom{2} 0.033]\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Weibull}}\\
+\hspace{1em}Posterior predictive & RMSE & 1274.59 & {}[1219.12, 1365.19]\\
+\hspace{1em} & KS test $d$ & 0.006 & {}[0.005, \vphantom{2} 0.007]\\
+\hspace{1em}Kappa-optimised & RMSE & 1200.08 & {}[1149.06, 1272.05]\\
+\hspace{1em} & KS test $d$ & 0.006 & {}[0.005, \vphantom{1} 0.007]\\
+\hspace{1em}Misclassification rate-optimised & RMSE & 1133.35 & {}[1091.11, 1185.82]\\
+\hspace{1em} & KS test $d$ & 0.032 & {}[0.032, \vphantom{1} 0.033]\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Generalized gamma}}\\
+\hspace{1em}Posterior predictive & RMSE & 1108.43 & {}[1088.47, 1128.74]\\
+\hspace{1em} & KS test $d$ & 0.002 & {}[0.001, 0.003]\\
+\hspace{1em}Kappa-optimised & RMSE & 1026.00 & {}[1006.50, 1045.42]\\
+\hspace{1em} & KS test $d$ & 0.006 & {}[0.005, 0.007]\\
+\hspace{1em}Misclassification rate-optimised & RMSE & 979.07 & {}[961.11, 996.53]\\
+\hspace{1em} & KS test $d$ & 0.032 & {}[0.032, 0.033]\\
+\bottomrule
+\end{tabular}
+\end{table}

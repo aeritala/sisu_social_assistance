@@ -1,0 +1,159 @@
+---
+title: "Task `r params$task`"
+output: html_document
+params:
+  task: "2024-01-04_test"
+  files: NULL
+---
+
+```{r, include = FALSE}
+suppressWarnings(suppressMessages(library(knitr)))
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      results = FALSE)
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(ggplot2)))
+suppressWarnings(suppressMessages(library(stringr)))
+suppressWarnings(suppressMessages(library(tidyr)))
+suppressWarnings(suppressMessages(library(kableExtra)))
+source(file = file.path("report",
+                        "functions",
+                        "report_helpers.R"))
+```
+
+
+
+
+```{r initial_settings}
+task_path <- file.path("output",
+                       params$task)
+# task_path <- file.path("output",
+#                        task)
+# res <- readResults(files, all_files = FALSE)
+if (!is.null(params$files)) {
+  res <- readResults(params$files, all_files = FALSE)
+} else {
+  res <- readResults(task_path, all_files = TRUE)
+}
+```
+
+## Comparisons
+
+```{r, results = TRUE}
+comps <- res %>% select(file, formula)
+kableExtra::kable(comps) %>% 
+  kable_paper()
+```
+
+```{r, results = TRUE}
+train_res <- fitSummaryReal(res, train = TRUE)
+index <- table(train_res$criteria$file)
+```
+
+## Training data results
+
+### Order based on criteria
+
+Order of the fits according to LPPD, mean RMSE and mean KS-test. Means have been calculated over estimates calculated from the posterior predictive samples.
+
+```{r, results = TRUE}
+
+fit_order <- train_res$criteria %>%
+  filter(stat == "mean") %>% 
+  arrange(desc(lppd),
+          desc(rmse),
+          desc(ks_test)) %>% 
+  select(!stat)
+
+kableExtra::kable(fit_order,
+             digits = 2) %>% 
+  kable_paper()
+```
+
+### Criteria
+```{r, results = TRUE}
+kableExtra::kable(train_res$criteria %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Bayesian p-values
+```{r, results = TRUE}
+kableExtra::kable(train_res$bayesian_p %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Descriptive statistics of the posterior predictive samples
+```{r, results = TRUE}
+kableExtra::kable(train_res$postpred_desc %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Data set descriptives
+```{r, results = TRUE}
+kableExtra::kable(train_res$data_desc,
+                  digits = 2) %>%
+  kable_paper()
+```
+
+## Validation data results
+
+```{r}
+valid_res <- fitSummaryReal(res, train = FALSE)
+index <- table(valid_res$criteria$file)
+```
+
+### Order based on criteria
+
+Order of the fits according to LPPD, mean RMSE and mean KS-test. Means have been calculated over estimates calculated from the posterior predictive samples.
+
+```{r, results = TRUE}
+fit_order <- valid_res$criteria %>%
+  filter(stat == "mean") %>% 
+  arrange(desc(lppd),
+          desc(rmse),
+          desc(ks_test)) %>% 
+  select(!stat)
+
+kableExtra::kable(fit_order,
+             digits = 2) %>% 
+  kable_paper()
+```
+
+### Criteria
+
+```{r, results = TRUE}
+kableExtra::kable(valid_res$criteria %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Bayesian p-values
+```{r, results = TRUE}
+kableExtra::kable(valid_res$bayesian_p %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Descriptive statistics of the posterior predictive samples
+```{r, results = TRUE}
+kableExtra::kable(valid_res$postpred_desc %>% select(!file),
+                  digits = 2) %>% 
+  pack_rows(index = index) %>% 
+  kable_paper()
+```
+
+### Data set descriptives
+```{r, results = TRUE}
+kableExtra::kable(valid_res$data_desc,
+                  digits = 2) %>%
+  kable_paper()
+```

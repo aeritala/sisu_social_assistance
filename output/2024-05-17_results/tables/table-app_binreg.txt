@@ -1,0 +1,62 @@
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.5cm}}
+\caption{\label{tab:app_binreg}Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the logistic regression model
+    which was developed as the binary component of the two-part model. The star (*) denotes an interaction term. Detailed covariate descriptions are provided in the Appendix \ref{tab:app_cov}.}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endfirsthead
+\caption[]{Posterior means, standard errors, $\hat{R}$-values, bulk-ESS and tail-ESS values of the regression coefficients from the logistic regression mo \textit{(continued)}}\\
+\toprule
+Variable & Levels & Estimate & SE & $\hat{R}$ & Bulk-ESS & Tail-ESS\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Intercept} & Intercept & -13.40 & 1.69 & 1.00 & 5013.90 & 1602.78\\
+\textbf{Age} & Under 18 & -1.07 & 0.06 & 1.00 & 4404.69 & 2101.25\\
+\textbf{} & 25--34 & -0.01 & 0.03 & 1.00 & 2931.03 & 2329.16\\
+\textbf{} & 35--44 & -0.07 & 0.03 & 1.00 & 2836.63 & 2482.45\\
+\textbf{} & 45--65 & -0.43 & 0.03 & 1.00 & 2296.36 & 2140.99\\
+\textbf{} & 65 or older & -1.88 & 0.04 & 1.00 & 3410.54 & 2637.57\\
+\textbf{Sex} & Female & 0.03 & 0.02 & 1.00 & 6645.70 & 2102.75\\
+\textbf{House-dwel. structure} & Couple with children & 0.21 & 0.03 & 1.00 & 3860.70 & 2448.68\\
+\textbf{} & Couple & -0.57 & 0.03 & 1.00 & 3966.59 & 2421.87\\
+\textbf{} & Unknown & -0.14 & 0.06 & 1.00 & 2356.84 & 2369.38\\
+\textbf{} & Other & 0.32 & 0.07 & 1.00 & 4276.69 & 2082.13\\
+\textbf{} & Single with children & 0.75 & 0.03 & 1.00 & 3538.05 & 2299.78\\
+\textbf{Main activity} & On pension & -0.40 & 0.04 & 1.00 & 2692.28 & 2335.85\\
+\textbf{} & Other & 0.30 & 0.03 & 1.00 & 3322.49 & 2477.72\\
+\textbf{} & Student & 0.37 & 0.06 & 1.00 & 3026.40 & 2229.02\\
+\textbf{} & Entrepreneur & -1.50 & 0.06 & 1.00 & 3726.63 & 2604.11\\
+\textbf{Housing tenure} & Owner-occupied & -0.98 & 0.05 & 1.00 & 2268.32 & 2340.75\\
+\textbf{} & Part-ownership & -0.06 & 0.08 & 1.00 & 3174.80 & 2144.71\\
+\textbf{} & Rented dwelling & 0.78 & 0.05 & 1.00 & 2199.02 & 1957.56\\
+\textbf{Communal house-dwel.} & Yes & 0.69 & 0.03 & 1.00 & 3764.84 & 2328.97\\
+\textbf{Education level} & Upper second. & -0.51 & 0.02 & 1.00 & 4883.87 & 2587.35\\
+\textbf{} & Post-second. non-tert. & -0.47 & 0.10 & 1.00 & 6097.94 & 1731.80\\
+\textbf{} & Lowest tertiary & -0.85 & 0.04 & 1.00 & 5024.80 & 2506.02\\
+\textbf{} & Bachelor's or equiv. & -1.17 & 0.03 & 1.00 & 4867.17 & 2286.11\\
+\textbf{} & Master's or equiv. and second stage of tert. & -1.54 & 0.04 & 1.00 & 5723.35 & 2371.87\\
+\textbf{Municip. class} & Other Helsinki metrop. area & 0.13 & 0.03 & 1.00 & 3685.76 & 2531.76\\
+\textbf{} & Middle-sized cities & -0.05 & 0.02 & 1.00 & 3379.69 & 2169.19\\
+\textbf{} & Other municipalities & -0.03 & 0.03 & 1.00 & 3558.80 & 2483.53\\
+\textbf{Immigrant status} & Yes & -0.03 & 0.02 & 1.00 & 5815.45 & 2323.49\\
+\textbf{Unemp. duration} &  & 0.55 & 0.01 & 1.00 & 5007.49 & 2390.56\\
+\textbf{Income decile} &  & 0.04 & 0.05 & 1.00 & 4607.36 & 2632.03\\
+\textbf{Salary} &  & -40.13 & 0.73 & 1.00 & 2694.30 & 2318.89\\
+\textbf{Capital income} &  & -0.04 & 1.98 & 1.00 & 6098.65 & 2300.92\\
+\textbf{Housing allowance} &  & 27.85 & 1.99 & 1.01 & 6231.75 & 1906.15\\
+\textbf{Labour market subsidy} &  & 15.82 & 0.37 & 1.00 & 4818.50 & 2256.25\\
+\textbf{Basic unemp.} &  & 1.25 & 0.09 & 1.00 & 6189.29 & 2443.06\\
+\textbf{Earnings-rel. unemp.} &  & -5.92 & 0.30 & 1.00 & 5194.60 & 2274.88\\
+\textbf{Pension} &  & 3.80 & 2.08 & 1.00 & 7928.79 & 1744.57\\
+\textbf{Student aid} &  & -0.28 & 0.02 & 1.00 & 3604.10 & 2403.23\\
+\textbf{SISU soc.assist. cont.} &  & 3.68 & 1.95 & 1.00 & 6596.88 & 2034.56\\
+\textbf{Family's benefits} &  & 5.54 & 1.96 & 1.00 & 4947.15 & 2114.59\\
+\textbf{Other social benefits} &  & 3.31 & 1.91 & 1.00 & 6509.22 & 2199.45\\*
+\end{longtable}
+\endgroup{}

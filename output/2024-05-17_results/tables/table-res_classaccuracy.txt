@@ -1,0 +1,34 @@
+\begin{table}
+
+\caption{\label{tab:classacc}Mean and 95\% credible intervals of the false negative rate, false positive rate
+                   and misclassification rate for the standard two-part model according to the classification method,
+                   and the corresponding point estimates of the dummy model and the SISU model. The estimates have been calculated using the test data set, and
+                   the two-part model the predictions have been simulated using 3000 posterior samples.}
+\centering
+\fontsize{11}{13}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{3.8cm}l>{\raggedleft\arraybackslash}p{1.8cm}>{\raggedleft\arraybackslash}p{2.3cm}}
+\toprule
+\quad Classifier & Statistic & Estimate (\%) & 95\% CI\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Dummy}}\\
+\hspace{1em} & Misclassification rate & 9.13 & \\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{SISU model}}\\
+\hspace{1em} & False negative rate & 46.68 & \\
+\hspace{1em} & False positive rate & 5.19 & \\
+\hspace{1em} & Misclassification rate & 8.78 & \\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Two-part model}}\\
+\hspace{1em}Posterior predictive & False negative rate & 50.18 & {}[49.30, 51.11]\\
+\hspace{1em} & False positive rate & 5.05 & {}[4.91, 5.19]\\
+\hspace{1em} & Misclassification rate & 9.17 & {}[9.02, 9.32]\\
+\hspace{1em}Kappa-optimised & False negative rate & 38.29 & {}[37.92, 38.65]\\
+\hspace{1em} & False positive rate & 3.17 & {}[3.09, 3.24]\\
+\hspace{1em} & Misclassification rate & 6.38 & {}[6.33, 6.42]\\
+\hspace{1em}Misclassification rate-optimised & False negative rate & 50.22 & {}[49.86, 50.58]\\
+\hspace{1em} & False positive rate & 1.49 & {}[1.46, 1.53]\\
+\hspace{1em} & Misclassification rate & 5.94 & {}[5.92, 5.97]\\
+\bottomrule
+\end{tabular}
+\end{table}
